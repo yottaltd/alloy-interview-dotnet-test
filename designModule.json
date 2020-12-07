@@ -17,9 +17,7 @@
           }
         },
         {
-          "name": {
-            "en": "Members"
-          },
+          "name": "Members",
           "code": "attributes_gangsMembers",
           "type": "Link",
           "required": false,
@@ -31,9 +29,7 @@
           }
         },
         {
-          "name": {
-            "en": "Money Collected"
-          },
+          "name": "Money Collected",
           "code": "attributes_gangsMoneyCollected",
           "type": "Number",
           "required": true,
@@ -63,9 +59,7 @@
           }
         },
         {
-          "name": {
-            "en": "Role"
-          },
+          "name": "Role",
           "code": "attributes_gangsMembersRole",
           "type": "String",
           "required": true,
