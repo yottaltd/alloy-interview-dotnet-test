@@ -8,7 +8,7 @@ namespace WebApi.Controllers
     {
         [HttpGet]
         [Route("api/design/{code}")]
-        public async Task Create(string code)
+        public async Task Get(string code)
         {
         }
 
