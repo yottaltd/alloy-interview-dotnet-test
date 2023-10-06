@@ -1,6 +1,6 @@
 # Alloy Interview Test
 
-Welcome Rookie and thanks for having accepted the invite to this assignment.
+Welcome Hotshot and thanks for having accepted the invite to this assignment.
 
 We are short on time and need you to provide a demoable solution for a buyer that wants to manage their members and the amounts of money that are collected, all completely legal stuff, of course.
 
@@ -17,7 +17,7 @@ The use cases of our buyer are… how would you put it…. Critical, so the appl
 One thing to note is that the Web Api, provides a way to manage data that is very different from the Module Parser, which resembles more a bulk importer. However we want nothing to do with double databases or data formats just because there are different ways of inputting data. Please deal with this well, no pressure :)
 Given the fact that it is a fake database, we do not expect the highest read or write performances, however the number of "database calls" should be kept to a minimum just as it should be done against a real database.
 
-Oh I almost forgot to mention, the meeting is in 2 hours, good luck!
+Oh I almost forgot to mention, the meeting is in 1.5 hours, good luck!
 
 ### Must have
 
