@@ -36,8 +36,7 @@
           "readonly": false,
           "unique": false,
           "options": {
-            "code": "designs_gangMembers",
-            "graph": "Gang"
+            "min": 0
           }
         }
       ]
