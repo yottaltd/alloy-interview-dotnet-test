@@ -1,10 +1,12 @@
+using Engine;
+using Engine.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NSwag;
-using WebApi.Config;
+using System.IO;
 
 namespace WebApi
 {
@@ -20,8 +22,15 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            NSwagConfig.Configure(services, "Web Api", "Web Api");
-            services.AddControllers();
+            var execPath = Path.GetDirectoryName(GetType().Assembly.Location);
+            var dbPath = Path.Combine(execPath, "db");
+            if(!Directory.Exists(dbPath)) Directory.CreateDirectory(dbPath);
+
+            services
+                .Configure<RepositoryOptions>(x => x.BasePath = dbPath)
+                .AddEngine()
+                .AddControllers()
+                .AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,8 +40,6 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            NSwagConfig.RegisterNSwagConfig(app, OpenApiSchema.Http);
 
             app.UseRouting();
 

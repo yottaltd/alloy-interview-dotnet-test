@@ -2,32 +2,22 @@
 
 Welcome Hotshot and thanks for having accepted the invite to this assignment.
 
-We are short on time and need you to provide a demoable solution for a buyer that wants to manage their members and the amounts of money that are collected, all completely legal stuff, of course.
+We are short on time and need you to provide a demoable solution for a buyer that wants a way to query thier very generic data.
 
-We have been provided with a designModule.json file that is in the solution directory. You will need to implement the Module Parser project logic. It is a console application that needs to be able to read the provided example file and write the resulting designs file system database (more details on this later).
+We have been provided with a set of example json queries inside queries.txt and data in items.json within the solution directory.  The Engine project contains the domain code for working with thier generic data they call "items", only implemented as a file system database as this is a prototype that will surely never go to production.
 
-Moreover you should provide an Api, stubbed in the Web Api project, usable by these techsavy businessmen so that they can manage their designs remotely.
+There is a query method and model but they are empty.  It is our lucky task to find a way to model, interpret and run any query with the various examples our substitute for a user story.  There is a functioning webapi but there is no need to seperate the QueryModel into two classes unless you deem it necessary.
 
-As hinted, for this demo it will not be necessary to use a real database, a fake file system based one will suffice.
-The database is contained in a Database folder next to the solution. There is no requirement about where this folder should be so it can be placed wherever it is deemed easier to access, as long as the software deals with it.
-Each file in that folder is considered to be like a “Table” (Sql) or a “Collection” (NoSql). One file is provided, representing the empty designs collection.
+The use cases of our buyer are… how would you put it…. Critical, so the application needs to be stable and thoroughfully tested before being delivered, otherwise this might be our last assignment. Every publicly exposed function for every project needs to have at least one test, no need to test the private or internal ones.
 
-The use cases of our buyer are… how would you put it…. Critical, so the application needs to be stable and thoroughfully tested before being delivered, otherwise this might be our last assignment. Every publicly exposed function for every project needs to have at least one test, no need to test the private or internal ones. If another project is created, then a unit test project should be created for it accordingly.
+One thing to note is that while we are dealing with a fake filesystem database, we need to make sure that when we run the query the fewest calls to what would be a "real" database are made, and that they are well targetted - commands should be made/added to the repository that request precisely the data needed and no more.  This includes the mechanism chosen to do pagination which will need implementing across the domains as you see fit.
 
-One thing to note is that the Web Api, provides a way to manage data that is very different from the Module Parser, which resembles more a bulk importer. However we want nothing to do with double databases or data formats just because there are different ways of inputting data. Please deal with this well, no pressure :)
-Given the fact that it is a fake database, we do not expect the highest read or write performances, however the number of "database calls" should be kept to a minimum just as it should be done against a real database.
+Oh I almost forgot to mention, the meeting is in 2 hours, good luck!
 
-Oh I almost forgot to mention, the meeting is in 1.5 hours, good luck!
+### The MVP
 
-### Must have
-
-* The Module Parser project needs to be able to receive the designModule.json through command line input and save it to the file system database
-* The Web Api needs to have all the stubbed out and commented out endpoints working and using the file system database
-* The code needs to be able to uniformly interact with the file system databases
-* At least one unit test method needs to be written for every public method of every non test project
-* The correct models need to be inferred from the files provided and only from the files provided. No need for overthinking but what about polymorphic behaviour?
-
-### Nice to have
-
-* Model Validation through Data Annotations for Web Api request data models
-* Model Validation through Data Annotations for models inserted in the database
+* The json queries must be parsed into a single model representing any type of query that could be made
+* The query must be made and return the correct items
+* The query must scale to large datasets
+* At least one unit test method needs to be written for each query shape
+* Queries should be validated as much as possible so that invalid ones can be avoided and explained to the user
