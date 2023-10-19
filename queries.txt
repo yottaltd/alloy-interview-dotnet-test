@@ -1,0 +1,128 @@
+{
+    "properties": {
+        "dodiCode": "designs_rangers",
+        "attributes": [
+            "attributes_phoneNumber"
+        ]
+    },
+    "children": [
+        {
+            "type": "And",
+            "children": [
+                {
+                    "type": "StartsWith",
+                    "children": [
+                        {
+                            "type": "Attribute",
+                            "properties": {
+                                "attributeCode": "attributes_areaCode"
+                            }
+                        },
+                        {
+                            "type": "String",
+                            "properties": {
+                                "value": "borkshire-SE-"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "GreaterThan",
+                    "children": [
+                        {
+                            "type": "Attribute",
+                            "properties": {
+                                "attributeCode": "attributes_experience"
+                            }
+                        },
+                        {
+                            "type": "Number",
+                            "properties": {
+                                "value": 100.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+{
+    "properties": {
+        "dodiCode": "designs_parks",
+        "attributes": [
+            "attributes_phoneNumber"
+        ]
+    },
+    "children": [
+        {
+            "type": "LessThan",
+            "children": [
+                {
+                    "type": "Divide",
+                    "children": [
+                        {
+                            "type": "Subtract",
+                            "children": [
+                                {
+                                    "type": "Attribute",
+                                    "properties": {
+                                        "attributeCode": "attributes_charityRevenue"
+                                    }
+                                },
+                                {
+                                    "type": "Attribute",
+                                    "properties": {
+                                        "attributeCode": "attributes_conservationCosts"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Attribute",
+                            "properties": {
+                                "attributeCode": "attributes_charityRevenue"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "Number",
+                    "properties": {
+                        "value": 0.7
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+{
+    "properties": {
+        "dodiCode": "designs_trees",
+        "attributes": [
+            "all"
+        ]
+    },
+    "children": [
+        {
+            "type": "Equals",
+            "children": [
+                {
+                    "type": "Attribute",
+                    "properties": {
+                        "path": "root.attributes_birdHouses",
+                        "attributeCode": "attributes_hasProtectedSpecies"
+                    }
+                },
+                {
+                    "type": "Boolean",
+                    "properties": {
+                        "value": false
+                    }
+                }
+            ]
+        }
+    ]
+}
