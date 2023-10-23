@@ -18,6 +18,6 @@ Oh I almost forgot to mention, the meeting is in 2 hours, good luck!
 
 * The json queries must be parsed into a single model representing any type of query that could be made
 * The query must be made and return the correct items
-* The query must scale to large datasets
+* The execution of the query must be ready to scale to large datasets
 * At least one unit test method needs to be written for each query shape
 * Queries should be validated as much as possible so that invalid ones can be avoided and explained to the user
