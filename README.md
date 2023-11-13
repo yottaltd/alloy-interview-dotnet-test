@@ -16,7 +16,7 @@ Oh I almost forgot to mention, the meeting is in 2 hours, good luck!
 
 ### The MVP
 
-* The json queries must be parsed into a single model representing any type of query that could be made
+* The json queries must be parsed into a minimal set of models representing any type of query that could be made
 * The query must be made and return the correct items
 * The execution of the query must be ready to scale to large datasets
 * At least one unit test method needs to be written for each query shape
