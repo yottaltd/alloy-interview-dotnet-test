@@ -20,8 +20,7 @@ namespace Engine.Services
         public void Create(Item item)
         {
             var items = GetItems();
-            items.Append(item);
-            SetItems(items);
+            SetItems(items.Append(item));
         }
 
         public IReadOnlyCollection<Item> Items => GetItems();
