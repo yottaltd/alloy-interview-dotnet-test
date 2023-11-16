@@ -12,7 +12,7 @@ namespace EngineTest
     {
         private IEngine Engine { get; set; }
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Setup()
         {
             var services = new ServiceCollection();

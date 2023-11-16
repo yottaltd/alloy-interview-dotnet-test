@@ -10,6 +10,10 @@ using WebApiTest.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
+using System.IO;
+using Engine.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace WebApiTest
 {
@@ -18,16 +22,18 @@ namespace WebApiTest
     {
         private WebTestHelper<Startup> Helper { get; set; }
 
-        [OneTimeSetUp]
+        [SetUp]
         public void OneTimeSetup()
         {
             JsonConvert.DefaultSettings = () => new() { ContractResolver = new CamelCasePropertyNamesContractResolver() };
             Helper = new WebTestHelper<Startup>("http://localhost/api", new WebApplicationFactory<Startup>(), delegate { }, delegate { });
-        }
 
-        [SetUp]
-        public void Setup()
-        {
+            var repoOptions = Helper.ServiceProvider.GetService<IOptions<RepositoryOptions>>();
+            var dbPath = repoOptions.Value.BasePath;
+
+            Directory.Delete(dbPath, true);
+            Directory.CreateDirectory(dbPath);
+
             Helper.ResetUrl();
             Helper.UrlBuilder.AddPathSegment("item");
         }
