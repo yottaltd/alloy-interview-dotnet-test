@@ -12,8 +12,6 @@ The use cases of our buyer are… how would you put it…. Critical, so the appl
 
 One thing to note is that while we are dealing with a fake filesystem database, we need to make sure that when we run the query the fewest calls to what would be a "real" database are made, and that they are well targetted - commands should be made/added to the repository that request precisely the data needed and no more.  This includes the mechanism chosen to do pagination which will need implementing across the domains as you see fit.
 
-Oh I almost forgot to mention, the meeting is in 2 hours, good luck!
-
 ### The MVP
 
 * The json queries must be parsed into a minimal set of models representing any type of query that could be made
