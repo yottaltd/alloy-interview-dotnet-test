@@ -1,9 +1,9 @@
+// Note: There can be any number of designs and attributes in the live system
+
+// This is a query for items of type designs_rangers, which have an attributes_areaCode starting with "borkshire-SE-" and a attributes_experience > 100.0
 {
     "properties": {
-        "dodiCode": "designs_rangers",
-        "attributes": [
-            "attributes_phoneNumber"
-        ]
+        "designCode": "designs_rangers"
     },
     "children": [
         {
@@ -48,12 +48,10 @@
     ]
 }
 
+// This is a query for items of type designs_parks, which have (attributes_charityRevenue - attributes_conservationCosts)/attributes_charityRevenue > 0.7
 {
     "properties": {
-        "dodiCode": "designs_parks",
-        "attributes": [
-            "attributes_phoneNumber"
-        ]
+        "designCode": "designs_parks"
     },
     "children": [
         {
@@ -98,12 +96,10 @@
     ]
 }
 
+// This is a query for items of type designs_trees, which have at least one item referenced in attributes_birdHouses which has an attributes_hasProtectedSpecies value of false
 {
     "properties": {
-        "dodiCode": "designs_trees",
-        "attributes": [
-            "all"
-        ]
+        "designCode": "designs_trees"
     },
     "children": [
         {
