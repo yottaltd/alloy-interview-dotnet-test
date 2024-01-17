@@ -14,8 +14,7 @@ One thing to note is that while we are dealing with a fake filesystem database, 
 
 ### The MVP
 
-* The json queries must be parsed into a minimal set of models representing any type of query that could be made
-* The query must be made and return the correct items
-* The execution of the query must be ready to scale to large datasets
-* At least one unit test method needs to be written for each query shape
-* Queries should be validated as much as possible so that invalid ones can be avoided and explained to the user
+* The json queries parsed into a minimal set of models representing any type of query that could be made
+* The query made and returns the correct items
+* At least one unit test method written for each query shape
+* Queries should be validated and invalid queries explained to the caller
